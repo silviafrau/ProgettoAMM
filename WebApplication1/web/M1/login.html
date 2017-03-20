@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Nerdbook: trova nuovi amici</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Silvia Frau">
+        <meta name="keywords" content="cerca amici nuovi gruppi social"> 
+    </head>
+    <body>
+        <header>
+                <div id="title">
+                    <h1>NerdBook</h1>
+                </div>
+        </header>
+        <div id="divBody">
+            <div id="ref">
+                <ul>
+                    <li><a href="bacheca.html">Bacheca</a></li>
+                    <li><a href="descrizione.html">Descrizione</a></li>
+                    <li><a href="profilo.html">Profilo</a></li>
+                </ul>
+            </div>
+            <div id="formLogin">
+                <form action="servlet.java" method="post">
+                    <label for="textType">Inserisci il nome</label>
+                    <input type="text" name="UserName" value="UserName" id="textType"><br>
+                    <label for="Password">Inserisci password</label>
+                    <input type="password" name="login-password" tabindex="1" value="Password" id="Password"/><br>
+                    <button type="submit" >Invia dati</button>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
