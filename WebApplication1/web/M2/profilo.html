@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Nerdbook: trova nuovi amici</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Silvia Frau">
+        <meta name="keywords" content="cerca amici nuovi gruppi social"> 
+        
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <div id="title">
+                <h1>NerdBook</h1>
+            </div>
+        </header>
+    
+        <nav>
+                <ul>
+                    <li><a href="login.html" class="linkEffettivi">Login</a></li>
+                    <li><a href="descrizione.html" class="linkEffettivi">Descrizione</a></li>
+                </ul>
+        </nav>
+        <div id="divBody">
+            <div id="formProfilo">
+                <form action="servlet.java" method="post">
+                    <label for="Nome">Nome</label>
+                    <input type="text" name="Nome" value="UserName" id="Nome"/><br>
+                    
+                    <label for="Cognome">Cognome</label>
+                    <input type="text" name="Cognome" value="Cognome" id="Cognome"/><br>
+                    
+                    <label for="ImmagineProfilo">URL immagine profilo</label>
+                    <input type="file" accept="image/*" id="ImmagineProfilo" name="ImmagineProfilo"/><br>
+                    
+                    <label for="DescrizionePersonale">Descrizione personale</label>
+                    <textarea name="Presentazione personale" id="DescrizionePersonale" rows="3" cols="50">Inserisci una breve descrizione personale.</textarea><br>
+                    
+                    <label for="Data">Data</label>
+                    <input type="date" name="Data" id="Data"/><br>
+                    
+                    <label for="Password">Inserisci password</label>
+                    <input type="password" name="login-password" tabindex="1" value="Password" id="Password"/><br>
+                    
+                    <label for="DuplicaPassword">Conferma password</label>
+                    <input type="password" name="login-password" tabindex="1" value="Password" id="DuplicaPassword"/><br>
+                    
+                    <button type="submit" >Invia dati</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
