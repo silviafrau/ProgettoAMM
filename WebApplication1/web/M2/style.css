@@ -147,7 +147,7 @@ a:visited.linkEffettivi{
     font:25px/30px "Palatino Linotype", Palatino, sans-serif;
 }
 
-#contentForm2 label{
+#contentFormP label{
     font:25px/30px "Palatino Linotype", Palatino, sans-serif;
 }
 
@@ -255,3 +255,9 @@ h1#title::before{
     border-right: 2px solid #C3767F;
 }
 
+#contentForm{
+    background: url('nerd6.png') no-repeat left bottom;
+    border-bottom: 2px solid #C3767F;
+    border-right: 2px solid #C3767F;
+    
+}
