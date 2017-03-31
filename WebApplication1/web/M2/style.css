@@ -3,13 +3,13 @@
     Author     : SilviaFrau
 */
 
+/*sfondo e font*/
 body{
     background-color: #A38E94/*#3E96C9*/;
     font: 17px/25px "Open Sans", Arial, sans-serif;   
 }
 
-h1{
-    /*padding-top: 5px; /*Esaminato con inspector*/
+h1#title{
     color: #111111;
     font: 50px/55px "Palatino Linotype", Palatino, sans-serif;
     font-weight: bold;
@@ -20,10 +20,27 @@ h1{
     top:70px;
     left:0;
     text-decoration: underline;
-    /*background-image: url('joystick.png');	
-    background-repeat: no-repeat;	
-    background-position: left;
-    non so se funziona haha*/
+}
+
+h1#title3{
+    color: #111111;
+    font: 35px/40px "Palatino Linotype", Palatino, sans-serif;
+    font-weight: bold;
+    /*margin-top:20px !important;*/
+    margin:0px;
+    display:block;
+   position:relative;
+    /*top:70px;*/
+    left:0;
+    text-decoration: underline;
+    
+    
+}
+/* pagina bacheca, menù orizzontale*/
+h1{
+    border-right:3px solid #111111 !important;
+    padding-right: 15px !important;
+    
 }
 
 h2#title2{
@@ -46,23 +63,24 @@ h3{
     font-weight: bold;
 }
 
+/*
 a:link{
-    /*font-size: 15px;*/
+    font-size: 15px;
     text-decoration: none;
     color: #111111;
     font: 25px/30px "Palatino Linotype", Palatino, sans-serif;
 }
 
 a:visited.linkEffettivi{
-    /*font-size: 20px;*/
+    font-size: 20px;
     text-decoration: none;
-    color: #3E96C9;
+    color: #5D3E47;
     font: 25px/30px "Palatino Linotype", Palatino, sans-serif;
 }
 
 a:hover{
     font-weight: bold;
-    color: #40A5B2;
+    color: #64426A;
 }
 
 nav ol, nav li{
@@ -85,35 +103,53 @@ nav li:last-child{
 nav li.active{
     text-decoration: underline;
 }
-
-nav{
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-    background-color: #3B6DBE;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #667292;
-    top:5px;
-    width:99.8%;
-    position:relative;
+*/
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #B3667C;
+}
+/*bau*/
+li {
+    float: left;
 }
 
+li a.linkEffettivi {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover.linkEffettivi {
+    background-color: #64426A;
+}
+
+/*bau*/
+nav{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    top:0.5%;
+    position:fixed;
+    left:15%;
+    z-index: 1;
+    font-weight: bold;
+    font: 25px/30px "Palatino Linotype", Palatino, sans-serif;
+}
+a:visited.linkEffettivi{
+    color: #FCE0D7;
+}
+/*titolo Nerdbook pag.Login*/
 #title{
     text-align: center;
 
     
 }
 
-header{
-   padding:0px;
-   margin:0px;
-   position:relative;
-   top:0;
-   left:0;
-   width:99.5%;
-   height:30%;
-}
-
+/*grafica form della pagina di Login*/
 #formLogin{
     box-shadow: 0 0px 5px rgba(0,0,0,.2);
     width: 500px;
@@ -127,6 +163,7 @@ header{
     
 }
 
+/*sistemazione del fon e del ritorno carrello*/
 #formLogin label:after{
     content: '\A';
     white-space: pre;
@@ -134,11 +171,10 @@ header{
     
     
 }
-
+/* contenuto form e relativa grafica*/
 #contentForm{
     padding-top: 35px;
     padding-bottom: 35px;
-   /* text-align: center;*/
     background-color: #5E3541;
     opacity: 0.8;
     padding-left:29.5%;
@@ -146,34 +182,63 @@ header{
     
 }
 
+/* grafica etichette contenuto form*/
 #contentForm label{
     font:25px/30px "Palatino Linotype", Palatino, sans-serif;
 }
+
+/*Nerbook nella pagina della bacheca, bisogna sistemare ancora il login dove title2 si riferisce invece a "Login"*/
 #title2{
     display:block;
     position: fixed;
-    /*position: relative;*/
-    top:5px;
+    
+    top:1px;
     left:0px;
     margin:0;
     padding-right:99.8%;
     padding-left:0.5%;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     background-color: #B3667C;
+    border-right:5px solid #111111;
 }
 
-#img1{
-    	background-image: url('joystick.png');	
-        background-repeat: no-repeat;	
-        display:block;
-        position:relative;
-        top:150px;
-        left:170px;
-}
 
-h1::before{
+/*Nerbook della pagina login, immagine decoro*/
+h1#title::before{
     content: url('joystick.png');
     position:relative;
     right:5px;
     top:10px;
+}
+
+/*divBody delle pagine con menu orizzontale, bacheca */
+#divBody1{
+    position:relative;
+    top:100px;
+    padding-left: 190px;
+    margin-left: 190px;
+    border-left: 4px solid gray;
+    overflow:hidden;
+}
+
+/*div ancora non implementato a sinistra in Bacheca*/
+#Cercaamici{
+    float:left;
+    width:100px;
+    margin:0px;
+    padding: 1em;
+    position:relative;
+    top:100px;
+}
+
+/*poi devo modificare perchè non è responsive*/
+#LogoutUser{
+    padding-left: 600px;
+    padding-top:15px;
+}
+
+#LogoutUser::before{
+    content:url('profilo4.png');
+    padding-right:10px;
+    padding-top: 9px;
 }
