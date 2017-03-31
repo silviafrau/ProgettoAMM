@@ -20,6 +20,10 @@ h1{
     top:70px;
     left:0;
     text-decoration: underline;
+    /*background-image: url('joystick.png');	
+    background-repeat: no-repeat;	
+    background-position: left;
+    non so se funziona haha*/
 }
 
 h2#title2{
@@ -158,3 +162,18 @@ header{
     background-color: #B3667C;
 }
 
+#img1{
+    	background-image: url('joystick.png');	
+        background-repeat: no-repeat;	
+        display:block;
+        position:relative;
+        top:150px;
+        left:170px;
+}
+
+h1::before{
+    content: url('joystick.png');
+    position:relative;
+    right:5px;
+    top:10px;
+}
