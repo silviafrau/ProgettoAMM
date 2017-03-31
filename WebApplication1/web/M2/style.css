@@ -22,20 +22,6 @@ h1#title{
     text-decoration: underline;
 }
 
-h1#title3{
-    color: #111111;
-    font: 35px/40px "Palatino Linotype", Palatino, sans-serif;
-    font-weight: bold;
-    /*margin-top:20px !important;*/
-    margin:0px;
-    display:block;
-   position:relative;
-    /*top:70px;*/
-    left:0;
-    text-decoration: underline;
-    
-    
-}
 /* pagina bacheca, menù orizzontale*/
 h1{
     border-right:3px solid #111111 !important;
@@ -145,7 +131,7 @@ a:visited.linkEffettivi{
 #contentForm, #contentFormP{
     padding-top: 35px;
     padding-bottom: 35px;
-    background-color: #5E3541;
+    background-color: #5E3541 !important;
     opacity: 0.8;
     padding-left:29.5%;
     margin: 0;
@@ -225,6 +211,8 @@ h1#title::before{
     width:60%;
     padding: 5px;
     margin-bottom: 10px;
+    border-right: 2px solid #FF9EB5;
+    border-bottom: 2px solid #FF9EB5;
 }
 
 .nome{
@@ -232,8 +220,26 @@ h1#title::before{
     font: 20px/25px "Palatino Linotype", Palatino, sans-serif;
     color: #7D2630;
     text-decoration: underline ;
+    position:absolute;
+    left:25%;
+    
+    
 }
 
+.imgProf{
+    width:60px;
+    height: auto;
+    overflow:hidden;
+    position:relative;
+    left:5px;
+    top:5px;
+}
+
+.utente{
+    border-bottom: 2px solid #90575E;
+    border-right: 2px solid #90575E;
+    background-color: #C3767F;
+}
 /****************REGOLE***************/
 
 /*immagine decorativa che indica il logout */
@@ -242,3 +248,10 @@ h1#title::before{
     padding-right:10px;
     padding-top: 9px;
 }
+
+#contentFormP{
+    background: url('nerd.png') no-repeat right bottom;
+    border-bottom: 2px solid #C3767F;
+    border-right: 2px solid #C3767F;
+}
+
