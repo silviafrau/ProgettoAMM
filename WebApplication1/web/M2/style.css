@@ -9,15 +9,15 @@ body{
     font: 17px/25px "Open Sans", Arial, sans-serif;   
 }
 
-h1#title{
+#title h1{
     color: #111111;
-    font: 50px/55px "Palatino Linotype", Palatino, sans-serif;
+    font: 45px/50px "Palatino Linotype", Palatino, sans-serif;
     font-weight: bold;
-    margin-top:20px !important;
+    margin-top:7% !important;
+    margin-bottom: 3% !important;
     margin:0px;
     display:block;
     position:relative;
-    top:70px;
     left:0;
     text-decoration: underline;
 }
@@ -57,7 +57,7 @@ ul{
     background-color: #B3667C;
 }
 /*bau*/
-li {
+.li {
     float: left;
 }
 
@@ -71,6 +71,10 @@ li a.linkEffettivi {
 
 li a:hover.linkEffettivi {
     background-color: #64426A;
+}
+
+nav li#active{
+    background-color: #5E3541 !important;
 }
 
 /*bau*/
@@ -94,6 +98,16 @@ a:visited.linkEffettivi{
     
 }
 
+#logout{
+    text-decoration: none;
+    color:#111111;
+    padding: 14px 16px;
+}
+
+#logout:hover{
+    background-color: #64426A;
+}
+
 /*grafica form della pagina di Login*/
  #formLogin{
     box-shadow: 0 0px 5px rgba(0,0,0,.2);
@@ -102,7 +116,7 @@ a:visited.linkEffettivi{
     border-bottom: 2px solid #704959;
     border-right: 2px solid #704959;
     position:relative;
-    top: 120px;
+    top: 70%;
     left:32%;
     margin-right:0;
     
@@ -201,7 +215,10 @@ h1#title::before{
 
 /*poi devo modificare perchè non è responsive*/
 #LogoutUser{
-    padding-left: 600px;
+    float:right;
+    position:relative;
+    width:350px;
+    margin-left: 300px;
     padding-top:15px;
 }
 
@@ -240,6 +257,77 @@ h1#title::before{
     border-right: 2px solid #90575E;
     background-color: #C3767F;
 }
+
+#submit{
+    width:26%;
+    height:20%;
+    margin-top:2%;
+    margin-left: 16%;
+    background-color: #FF9EB5;
+    border-bottom-color:#7D6168;
+    border-right-color:#7D6168;
+    border-top-color: #F6D2D6;
+    border-left-color: #F6D2D6;
+    color: #111111;
+    border-radius:10px;
+    font: 15px/20px "Palatino Linotype", Palatino, sans-serif;
+}
+
+.imput{
+    width:59%;
+}
+
+#contentForm input:focus{
+   outline: none;
+   border-color: #CC4D78;
+   box-shadow: 0 0 10px #CC4D78;
+}
+
+#contentFormP input:focus{
+   outline: none;
+   border-color: #CC4D78;
+   box-shadow: 0 0 10px #CC4D78;
+}
+
+#contentFormP textArea:focus{
+   outline: none;
+   border-color: #CC4D78;
+   box-shadow: 0 0 10px #CC4D78;
+}
+
+
+
+.linkdiversi{
+    color: black;
+    font: 20px/25px "Palatino Linotype", Palatino, sans-serif;
+}
+
+.linkdiversi:hover{
+    color: #64426A;
+    font: 25px/30px "Palatino Linotype", Palatino, sans-serif;
+}
+
+.linkdiversi:visited{
+    color: #7D2630;
+    font: 20px/25px "Palatino Linotype", Palatino, sans-serif;
+}
+
+#sottotitolo, h3{
+    color: #111111;
+    text-align: center;
+    font:  "Palatino Linotype", Palatino, sans-serif;
+    margin: 0px;
+    
+}
+
+#subtitle{
+    position: relative;
+    top:0px;
+}
+
+p{
+    font: 20px/25px "Palatino Linotype", Palatino, sans-serif;
+}
 /****************REGOLE***************/
 
 /*immagine decorativa che indica il logout */
@@ -261,3 +349,11 @@ h1#title::before{
     border-right: 2px solid #C3767F;
     
 }
+
+#title h1:before{
+    content: url('joystick.png');
+    top:10px;
+    right:8px;
+    position:relative;
+}
+
