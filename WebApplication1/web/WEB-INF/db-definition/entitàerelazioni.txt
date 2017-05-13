@@ -1,0 +1,35 @@
+Utente{ 
+# *id, 
+name, 
+email, 
+fotoProfilo, 
+password}
+
+Gruppi{
+# *id,
+name,
+numUtenti,
+user(Utente)
+}
+
+Post{ 
+# *id, 
+Fk user, 
+content, 
+Fk postType}
+
+
+Utenti: relazione 1 a molti (Post)
+Gruppi: relazione molti a molti (utente)
+Gruppi: 1 a molti (Post)
+Post: molti a 1(PostType)
+
+_MembriGruppo{
+# *utente
+# *gruppo
+
+_postType{
+#id
+nome
+}
+
