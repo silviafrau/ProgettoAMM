@@ -12,9 +12,12 @@ package amm.nerdbook.classi;
 public class UtentiRegistrati {
     private int id;
     private String nome;
+    private String cognome;
     private String email;
     private String password;
     private String urlFotoProfilo;
+    private String frasePresentazione;
+    private String username;
     
     public UtentiRegistrati() {
         id = 0;
@@ -39,6 +42,22 @@ public class UtentiRegistrati {
         this.nome = nome;
     }
     
+    public String getUsername() {
+        return nome;
+    }
+     
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getCognome() {
+        return cognome;
+    }
+     
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+    
     public String getEmail() {
         return email;
     }
@@ -53,6 +72,14 @@ public class UtentiRegistrati {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getPresentation() {
+        return frasePresentazione;
+    }
+    
+    public void setPresentation(String frase) {
+        this.frasePresentazione = frase;
     }
     
     @Override

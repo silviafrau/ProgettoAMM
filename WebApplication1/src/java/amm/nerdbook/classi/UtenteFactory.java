@@ -27,35 +27,56 @@ public class UtenteFactory {
     private UtenteFactory() {
         //Creazione utenti
 
-        //Djanni
+        //Gigi Palla
         UtentiRegistrati utente1 = new UtentiRegistrati();
         utente1.setId(0);
-        utente1.setNome("Djanni");
-        utente1.setEmail("djannigatto@gmail.com");
+        utente1.setNome("Gigi");
+        utente1.setCognome("Palla");
+        utente1.setUsername("Gigino");
+        utente1.setEmail("Pallino@gmail.com");
         utente1.setPassword("123");
-        utente1.setUrlFotoProfilo("img/djanniprofilo.jpg");
+        utente1.setUrlFotoProfilo("FotoProfilo.jpg");
+        utente1.setPresentation("Ciao raga, sono un fotomodelo al gusto di nutelo!!!");
 
-        //HeavyBreathing
+        //Tonio Cartonio
         UtentiRegistrati utente2 = new UtentiRegistrati();
         utente2.setId(1);
-        utente2.setNome("HeavyBreathing");
-        utente2.setEmail("cholansia@gmail.com");
-        utente2.setPassword("123");
-        utente2.setUrlFotoProfilo("img/user1.gif");
+        utente2.setNome("Tonio");
+        utente2.setCognome("Cartonio");
+        utente2.setUsername("Tonnio");
+        utente2.setEmail("BALORDO@gmail.com");
+        utente2.setPassword("miao");
+        utente2.setUrlFotoProfilo("img.jpg");
+        utente2.setPresentation("Aggiusto computer for free, se mi volete contattare ;) ");
 
-        //GymWorkOut
+        //Anna Pannocchia
         UtentiRegistrati utente3 = new UtentiRegistrati();
         utente3.setId(2);
-        utente3.setNome("GymWorkOut");
-        utente3.setEmail("doIt@gmail.com");
+        utente3.setNome("Anna");
+        utente3.setCognome("Pannocchia");
+        utente3.setUsername("Pannocchietta99");
+        utente3.setEmail("SonoIncintaMarioo@gmail.com");
         utente3.setPassword("123");
-        utente3.setUrlFotoProfilo("img/user2.jpg");
+        utente3.setUrlFotoProfilo("gat.jpg");
+        utente3.setPresentation("Mariotiamoooooo");
+        
+        //Mario Ciccioni
+        UtentiRegistrati utente4 = new UtentiRegistrati();
+        utente4.setId(2);
+        utente4.setNome("Mario");
+        utente4.setCognome("Ciccioni");
+        utente4.setUsername("Mariottide");
+        utente4.setEmail("Hofame@gmail.com");
+        utente4.setPassword("biscotto");
+        utente4.setUrlFotoProfilo("");
+        utente4.setPresentation("");
+        
 
         
         listaUtenti.add(utente1);
         listaUtenti.add(utente2);
         listaUtenti.add(utente3);
-
+        listaUtenti.add(utente4);
         
     }
     

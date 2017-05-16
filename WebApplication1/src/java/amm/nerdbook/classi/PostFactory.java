@@ -73,4 +73,5 @@ public class PostFactory {
         return listaPost;
     }
 
+ //manca la lista data dai gruppi ma non so implementare la setgroup. Yey.
 }
