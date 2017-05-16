@@ -38,7 +38,7 @@
             </c:if>
                        
             <div id="formProfilo" class="form">
-                <form action="servlet.java" method="post">
+                <form action="Profilo" method="post">
                     <div id="contentFormP">
                         <label for="Nome">Nome</label>
                         <input type="text" name="Nome" value="UserName" id="Nome"/><br>
@@ -63,6 +63,10 @@
 
                         <button type="submit" id="submit"  >Invia dati</button>
                     </div>
+                    <c:if test="${validData == true}">
+                        <div id="validDataAdvertising">Form inviato. =)</div>
+                        <!--devo far vedere anche i dati inviati-->
+                    </c:if>
                 </form>
             </div>
         </div>

@@ -56,6 +56,9 @@ public class Profilo extends HttpServlet {
                 request.setAttribute("Logout", true);
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
+        }else{
+            request.getRequestDispatcher("profilo.jsp").forward(request, response);
+            request.setAttribute("validData", true);
         }   
             
             
