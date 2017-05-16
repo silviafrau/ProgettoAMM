@@ -5,16 +5,19 @@
  */
 package amm.nerdbook;
 
+import amm.nerdbook.classi.UtenteFactory;
+import amm.nerdbook.classi.UtentiRegistrati;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Utente
+ * @author Silvia
  */
 public class Profilo extends HttpServlet {
 
@@ -30,6 +33,38 @@ public class Profilo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        //Apertura della sessione
+        HttpSession session = request.getSession();
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        
+        if( username == null || password == null)
+        {
+            request.setAttribute("invalidData", true);
+            request.setAttribute("Logout", true);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+            
+        if (username != null && password != null) 
+        {
+            int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
+            //se non sei loggato
+            if(loggedUserID==-1 || session.getAttribute("loggedIn").equals(false) || session.getAttribute("Logout")!= null){
+                request.setAttribute("invalidData", true);
+                request.setAttribute("Logout", true);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+        }   
+            
+            
+            
+            
+            
+            
+            
+            
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
