@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package amm.nerdbook.classi;
-
+import java.util.*;
 /**
  *
  * @author Utente
@@ -19,11 +19,45 @@ public class UtentiRegistrati {
     private String frasePresentazione;
     private String username;
     
+    private List<Gruppi> gruppiUtente;
+    private List<Post> postUtente;
+    
     public UtentiRegistrati() {
         id = 0;
         nome = "";
         email = "";
         password = "";
+    }
+    
+    public void addGroup(Gruppi gruppo){
+        gruppiUtente.add(gruppo);
+    }
+    
+    public void removeGroup(Gruppi gruppo){
+        gruppiUtente.remove(gruppo);
+    }
+    
+    public void printListGroup(){
+        for(Gruppi gruppo : gruppiUtente){
+            System.out.print(gruppo.getNomeGruppo());
+        }
+    }
+    
+    public void addPost(Post post){
+        postUtente.add(post);
+    }
+    
+    public void removePost(Post post){
+        postUtente.remove(post);
+    }
+    
+    public void printPost(){
+        for(Post post : postUtente){
+            System.out.print(post.getUser().getUsername());
+            if(post.getUser().getUrlFotoProfilo()!=null)
+                System.out.print(post.getUser().getUrlFotoProfilo());
+            System.out.print(post.getContent());
+        }
     }
     
     public int getId() {

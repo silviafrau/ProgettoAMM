@@ -66,6 +66,7 @@
                     <c:if test="${validData == true}">
                         <div id="validDataAdvertising">Form inviato. =)</div>
                         <!--devo far vedere anche i dati inviati-->
+                        
                     </c:if>
                 </form>
             </div>
