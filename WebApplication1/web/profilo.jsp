@@ -38,8 +38,8 @@
         <!--Contenuti della pagina-->
         <div id="divBody2">
             
-            <c:if test="${invalidData == true}">
-                 <div id="invalidDataWarning">Non sei autentificato. Riprova.</div>
+            <c:if test="${invalidData2 == true}">
+                 <div id="invalidDataWarning">Inserisci le tue informazioni.</div>
             </c:if>
                        
             <div id="formProfilo" class="form">

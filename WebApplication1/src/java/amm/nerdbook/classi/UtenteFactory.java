@@ -63,9 +63,9 @@ public class UtenteFactory {
         
         //Mario Ciccioni
         UtentiRegistrati utente4 = new UtentiRegistrati();
-        utente4.setId(2);
+        utente4.setId(3);
         utente4.setNome("Mario");
-        utente4.setCognome("Ciccioni");
+        utente4.setCognome(null);
         utente4.setUsername("Mariottide");
         utente4.setEmail("Hofame@gmail.com");
         utente4.setPassword("biscotto");

@@ -24,12 +24,12 @@ public class UtentiRegistrati {
     
     public UtentiRegistrati() {
         id = 0;
-        nome = "";
-        cognome="";
-        email = "";
-        password = "";
-        urlFotoProfilo="";
-        username="";
+        nome = null;
+        cognome= null;
+        email = null;
+        password = null;
+        urlFotoProfilo= null;
+        username= null;
         postUtente = new ArrayList<>();
         gruppiUtente= new ArrayList<>();
     }

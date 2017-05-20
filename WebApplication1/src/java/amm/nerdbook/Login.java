@@ -82,24 +82,38 @@ public class Login extends HttpServlet {
                     int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
                     //se l'utente è valido...
                     session.setAttribute("loggedUserID", loggedUserID);
+                    UtentiRegistrati user = UtenteFactory.getInstance().getUserById(loggedUserID);
                     if(loggedUserID!=-1)
                     {   
-                        UtentiRegistrati user = UtenteFactory.getInstance().getUserById(loggedUserID);
+                        if(user.getCognome() == null ||
+                           user.getNome()== null||
+                           user.getUrlFotoProfilo() == null ||
+                           user.getPresentation() == null)
+                        {   
+                            request.setAttribute("invalidData2",true);
+                            request.getRequestDispatcher("profilo.jsp").forward(request, response);
+                            return;
+                        }
+                        else
+                        {
+                      
+                        //UtentiRegistrati user = UtenteFactory.getInstance().getUserById(loggedUserID);
                         
-                        session.setAttribute("UserName",username);
-                        session.setAttribute("password",password);
-                        session.setAttribute("loggedIn", true);
-                        session.setAttribute("loggedUserID", loggedUserID);
-                        session.setAttribute("listaUtenti", UtenteFactory.getInstance().getUserList());
-                        session.setAttribute("listaGruppi", GruppoFactory.getInstance().getGroupList());
-                        session.setAttribute("loggedIn", true);
-                        session.setAttribute("user", UtenteFactory.getInstance().getUserById(loggedUserID));
-                        session.setAttribute("gruppo", GruppoFactory.getInstance().getGruppoByMembro(user));
-                        session.setAttribute("posts",PostFactory.getInstance().getPostList(user));
-                        session.setAttribute("post",PostFactory.getInstance().getPostById(loggedUserID));
-                       
-                        request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-                        return;
+                            session.setAttribute("UserName",username);
+                            session.setAttribute("password",password);
+                            session.setAttribute("loggedIn", true);
+                            session.setAttribute("loggedUserID", loggedUserID);
+                            session.setAttribute("listaUtenti", UtenteFactory.getInstance().getUserList());
+                            session.setAttribute("listaGruppi", GruppoFactory.getInstance().getGroupList());
+                            session.setAttribute("loggedIn", true);
+                            session.setAttribute("user", UtenteFactory.getInstance().getUserById(loggedUserID));
+                            session.setAttribute("gruppo", GruppoFactory.getInstance().getGruppoByMembro(user));
+                            session.setAttribute("posts",PostFactory.getInstance().getPostList(user));
+                            session.setAttribute("post",PostFactory.getInstance().getPostById(loggedUserID));
+
+                            request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                            return;
+                        }
                     } else {
                     //altrimenti se la coppia user/pass non è valida (id==-1)
                     //ritorno al form del login informandolo che i dati non sono validi
