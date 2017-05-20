@@ -5,6 +5,7 @@
  */
 package amm.nerdbook.classi;
 
+import amm.nerdbook.classi.*;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +23,7 @@ public class UtenteFactory {
         return singleton;
     }
 
-    private final ArrayList<UtentiRegistrati> listaUtenti = new ArrayList<>();
+    private  ArrayList<UtentiRegistrati> listaUtenti = new ArrayList<>();
 
     private UtenteFactory() {
         //Creazione utenti
@@ -68,8 +69,8 @@ public class UtenteFactory {
         utente4.setUsername("Mariottide");
         utente4.setEmail("Hofame@gmail.com");
         utente4.setPassword("biscotto");
-        utente4.setUrlFotoProfilo("");
-        utente4.setPresentation("");
+        utente4.setUrlFotoProfilo(null);
+        utente4.setPresentation(null);
         
 
         
@@ -91,10 +92,14 @@ public class UtenteFactory {
     
     public int getIdByUserAndPassword(String user, String password){
         for(UtentiRegistrati utente : this.listaUtenti){
-            if(utente.getNome().equals(user) && utente.getPassword().equals(password)){
+            if(utente.getUsername().equals(user) && utente.getPassword().equals(password)){
                 return utente.getId();
             }
         }
         return -1;
+    }
+    
+    public ArrayList<UtentiRegistrati> getUserList(){
+        return listaUtenti;
     }
 }

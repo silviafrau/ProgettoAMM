@@ -10,6 +10,7 @@ import amm.nerdbook.classi.UtentiRegistrati;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author Silvia
  */
+
+@WebServlet(urlPatterns=
+ {
+     "/profilo.html"
+ })
+
 public class Profilo extends HttpServlet {
 
     /**
@@ -35,32 +42,21 @@ public class Profilo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         //Apertura della sessione
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        if( username == null || password == null)
-        {
-            request.setAttribute("invalidData", true);
-            request.setAttribute("Logout", true);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
             
-        if (username != null && password != null) 
-        {
-            int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
-            //se non sei loggato
-            if(loggedUserID==-1 || session.getAttribute("loggedIn").equals(false) || session.getAttribute("Logout")!= null){
-                request.setAttribute("invalidData", true);
-                request.setAttribute("Logout", true);
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
-        }else{
-            request.getRequestDispatcher("profilo.jsp").forward(request, response);
+        if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) 
+        {   
+            
             request.setAttribute("validData", true);
-        }   
+            request.getRequestDispatcher("profilo.jsp").forward(request, response);
             
+        }else{
+            request.setAttribute("invalidData2", true);
+            request.setAttribute("logout", true);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
+        }  
             
             
             

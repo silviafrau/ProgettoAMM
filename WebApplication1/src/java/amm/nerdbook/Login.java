@@ -5,11 +5,12 @@
  */
 package amm.nerdbook;
 
-import amm.nerdbook.classi.UtenteFactory;
-import amm.nerdbook.classi.UtentiRegistrati;
+import amm.nerdbook.classi.*;
+import amm.nerdbook.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author Silvia
  */
+
+@WebServlet(urlPatterns=
+ {
+     "/login.html"
+ })
+
 public class Login extends HttpServlet {
 
     /**
@@ -40,43 +47,58 @@ public class Login extends HttpServlet {
         //Se è impostato il parametro GET logout, distrugge la sessione
         if(request.getParameter("logout")!=null)
         {
+            
             session.invalidate();
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
         
+        
         //Se esiste un attributo di sessione loggedIn e questo vale true
         //(Utente già loggato)
         if (session.getAttribute("loggedIn") != null &&
-            session.getAttribute("loggedIn").equals(true)) {
-
-            request.getRequestDispatcher("Bacheca").forward(request, response);
+            session.getAttribute("loggedIn").equals(true)) 
+        {
+                int loggedUserID = (int)session.getAttribute("loggedUserID");
+                UtentiRegistrati utente= UtenteFactory.getInstance().getUserById(loggedUserID);
+                if(utente.getCognome() == null ||
+                   utente.getNome()== null||
+                   utente.getUrlFotoProfilo() == null ||
+                   utente.getPresentation() == null)
+                {
+                    request.getRequestDispatcher("profilo.jsp").forward(request, response);
+                    return;
+                }
+              request.getRequestDispatcher("bacheca.jsp").forward(request, response);
             return;
         }
         
         //Se l'utente non è loggato...
         else {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-        
-        
+            String username = request.getParameter("UserName");
+            String password = request.getParameter("login-password");
             if (username != null && password != null) 
                 {
                     int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
                     //se l'utente è valido...
+                    session.setAttribute("loggedUserID", loggedUserID);
                     if(loggedUserID!=-1)
-                    {
+                    {   
+                        UtentiRegistrati user = UtenteFactory.getInstance().getUserById(loggedUserID);
+                        
+                        session.setAttribute("UserName",username);
+                        session.setAttribute("password",password);
                         session.setAttribute("loggedIn", true);
                         session.setAttribute("loggedUserID", loggedUserID);
-                        //se l'utente è valido ma mancano dati, vai al Profilo
-                        
-                        UtentiRegistrati utente = UtenteFactory.getInstance().getUserById(loggedUserID);
-                        if(utente.getNome().equals("") || utente.getCognome().equals("") || 
-                                utente.getUrlFotoProfilo().equals("") || utente.getPresentation().equals("") )
-                            request.getRequestDispatcher("Profilo").forward(request, response);
-                        
-                        //altrimenti
-                        request.getRequestDispatcher("Bacheca").forward(request, response);
+                        session.setAttribute("listaUtenti", UtenteFactory.getInstance().getUserList());
+                        session.setAttribute("listaGruppi", GruppoFactory.getInstance().getGroupList());
+                        session.setAttribute("loggedIn", true);
+                        session.setAttribute("user", UtenteFactory.getInstance().getUserById(loggedUserID));
+                        session.setAttribute("gruppo", GruppoFactory.getInstance().getGruppoByMembro(user));
+                        session.setAttribute("posts",PostFactory.getInstance().getPostList(user));
+                        session.setAttribute("post",PostFactory.getInstance().getPostById(loggedUserID));
+                       
+                        request.getRequestDispatcher("bacheca.jsp").forward(request, response);
                         return;
                     } else {
                     //altrimenti se la coppia user/pass non è valida (id==-1)
@@ -86,12 +108,8 @@ public class Login extends HttpServlet {
                     return;
                     }
                 }
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
-        /*
-          Se non si verifica nessuno degli altri casi, 
-          tentativo di accesso diretto alla servlet Login -> reindirizzo verso 
-          il form di login.
-        */
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
         

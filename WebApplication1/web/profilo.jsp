@@ -19,25 +19,27 @@
     </head>
     <body>
         <!--header contenente in titolo della pagina-->
-        <c:set var="title2" value="Bacheca Personale" scope="request"/>
-        <jsp:include page="header.jsp"/>
+        <header>
+            <div id="title2">
+                <h1>NerdBook</h1>
+            </div>
+        </header>
         
         <nav>
                 <ul>
-                    <li class="li" id="active"><a href="profilo.html" class="linkEffettivi">Profilo</a></li>
-                    <li class="li"><a href="bacheca.html" class="linkEffettivi">Bacheca</a></li>
-                    <li class="li" id="LogoutUser"><a href="login.html" id="logout">Silvia Frau : Logout</a></li>
+                    <li class="li" id="active"><a href="profilo.jsp" class="linkEffettivi">Profilo</a></li>
+                    <li class="li"><a href="bacheca.jsp" class="linkEffettivi">Bacheca</a></li>
+                    <c:if test="${empty param.user}">
+                        <li class="li" id="LogoutUser"><a href="Login?logout=1" id="logout">Logout</a></li>
+                     </c:if>
                 </ul>
         </nav>
         
         <!--Contenuti della pagina-->
         <div id="divBody2">
             
-            <c:if test="${invalidData2 == true}">
+            <c:if test="${invalidData == true}">
                  <div id="invalidDataWarning">Non sei autentificato. Riprova.</div>
-            </c:if>
-            <c:if test="${empty param.user}">
-                    <p id="logOutLink"><a href="Profilo?logout=1">Logout</a></p>
             </c:if>
                        
             <div id="formProfilo" class="form">
@@ -70,15 +72,14 @@
                         <div id="validDataAdvertising">Dati inviati: </div>
                         <!--devo far vedere anche i dati inviati-->
                         Nome: <%= request.getParameter("Nome") %> <br /> 
-                        Cognome: <%= request.getParameter("Cognome") %>
-                        URL immagine profilo:<%= request.getParameter("ImmagineProfilo")%>
-                        Descrizione Personale:<%= request.getParameter("DescrizionePersonale")%>
-                        Data: <%= request.getParameter("Data")%>
-                        Password: <%= request.getParameter("Password")%>
+                        Cognome: <%= request.getParameter("Cognome") %><br />
+                        URL immagine profilo:<%= request.getParameter("ImmagineProfilo")%><br/> 
+                        Descrizione Personale:<%= request.getParameter("Presentazione personale")%><br />
+                        Data: <%= request.getParameter("Data")%><br />
+                        Password: <%= request.getParameter("login-password")%><br />
                         
                     </c:if>
                 </form>
-                
             </div>
         </div>
     </body>

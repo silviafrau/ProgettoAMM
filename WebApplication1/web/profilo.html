@@ -1,12 +1,5 @@
-<%-- 
-    Document   : profilo
-    Created on : 16-mag-2017, 17.55.16
-    Author     : Silvia
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Nerdbook: trova nuovi amici</title>
@@ -18,10 +11,12 @@
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>
-        <!--header contenente in titolo della pagina-->
-        <c:set var="title2" value="Bacheca Personale" scope="request"/>
-        <jsp:include page="header.jsp"/>
-        
+        <header>
+            <div id="title2">
+                <h1>NerdBook</h1>
+            </div>
+        </header>
+    
         <nav>
                 <ul>
                     <li class="li" id="active"><a href="profilo.html" class="linkEffettivi">Profilo</a></li>
@@ -29,17 +24,7 @@
                     <li class="li" id="LogoutUser"><a href="login.html" id="logout">Silvia Frau : Logout</a></li>
                 </ul>
         </nav>
-        
-        <!--Contenuti della pagina-->
         <div id="divBody2">
-            
-            <c:if test="${invalidData2 == true}">
-                 <div id="invalidDataWarning">Non sei autentificato. Riprova.</div>
-            </c:if>
-            <c:if test="${empty param.user}">
-                    <p id="logOutLink"><a href="Profilo?logout=1">Logout</a></p>
-            </c:if>
-                       
             <div id="formProfilo" class="form">
                 <form action="Profilo" method="post">
                     <div id="contentFormP">
@@ -66,19 +51,7 @@
 
                         <button type="submit" id="submit"  >Invia dati</button>
                     </div>
-                    <c:if test="${validData == true}">
-                        <div id="validDataAdvertising">Dati inviati: </div>
-                        <!--devo far vedere anche i dati inviati-->
-                        Nome: <%= request.getParameter("Nome") %> <br /> 
-                        Cognome: <%= request.getParameter("Cognome") %>
-                        URL immagine profilo:<%= request.getParameter("ImmagineProfilo")%>
-                        Descrizione Personale:<%= request.getParameter("DescrizionePersonale")%>
-                        Data: <%= request.getParameter("Data")%>
-                        Password: <%= request.getParameter("Password")%>
-                        
-                    </c:if>
                 </form>
-                
             </div>
         </div>
     </body>

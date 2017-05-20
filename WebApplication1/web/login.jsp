@@ -19,48 +19,48 @@
     </head>
     <body>
         <header>
-            <!--c:set var="title2" value="Login" scope="request"/>
-            jsp:include page="header.jsp"/-->
-            
             <div id="title2">
                 <h2>Login</h2>
             </div>
-            
             <div id="title">
                 <h1>Nerdbook</h1>
             </div>   
         </header>
         <nav>
             <ul>
-                <li class="li"><a href="bacheca.html" class="linkEffettivi">Bacheca</a></li>
+                <!--<li class="li"><a href="bacheca.html" class="linkEffettivi">Bacheca</a></li>-->
                 <li class="li"><a href="descrizione.html" class="linkEffettivi">Descrizione</a></li>
                 <li class="li"><a href="profilo.html" class="linkEffettivi">Profilo</a></li>
-                
             </ul>
         </nav>
-        <div>
-            <c:if test=" loggedIn != null)">
-                <p>$(UtentiRegistrati.getNome()) $(UtentiRegistrati.getCognome)</p>
-                <a href="login.html?logout=1">Logout</a>
-            </c:if>
-            <c:if test="${invalidData == true}">
-                <div id="invalidDataWarning">I dati inseriti non sono corretti</div>
-            </c:if>
-        </div>
-        <form action="Login.java" method="post">
-            <div id="contentForm">
+            <div id="divBody">
+               <div id="Login" class="form">
+                   <form action="login.html" method="post">
+                       <div id="contentForm">
+                           
+                
                             <div>
                                  <label for="textType">Inserisci il nome</label>
-                                 <input type="text" name="UserName" value="UserName" id="textType" class="imput"/>
+                                 <input type="text" name="UserName" value="UserName" scope="session" id="textType" class="imput"/>
                              </div>
                              <div>
                                  <label for="Password">Inserisci password</label>
-                                 <input type="password" name="login-password" tabindex="1" value="Password" id="Password" class="imput"/>
+                                 <input type="password" name="login-password" scope="session" tabindex="1" value="Password" id="Password" class="imput"/>
                              </div>
                              <div>
                                  <button id="submit" type="submit" >Accedi</button>
                              </div>
                        </div>
                    </form>
+                       
+                   <c:if test="${invalidData == true}">
+                       <div id="invalidDataWarning">I dati inseriti non sono corretti</div>
+                       
+                   </c:if>
+                   <c:if test="${Int == '1'}">
+                       OK
+                   </c:if>
+               </div>
+            </div>
     </body>
 </html>

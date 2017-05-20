@@ -25,8 +25,13 @@ public class UtentiRegistrati {
     public UtentiRegistrati() {
         id = 0;
         nome = "";
+        cognome="";
         email = "";
         password = "";
+        urlFotoProfilo="";
+        username="";
+        postUtente = new ArrayList<>();
+        gruppiUtente= new ArrayList<>();
     }
     
     public void addGroup(Gruppi gruppo){
@@ -77,8 +82,10 @@ public class UtentiRegistrati {
     }
     
     public String getUsername() {
-        return nome;
+        return username;
     }
+    
+   
      
     public void setUsername(String username) {
         this.username = username;

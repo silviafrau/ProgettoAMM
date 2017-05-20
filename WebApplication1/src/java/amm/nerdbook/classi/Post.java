@@ -16,8 +16,10 @@ public class Post {
     }
     
     protected int id;
-    protected UtentiRegistrati user;
+    private UtentiRegistrati user;
     private String content;
+    private String url;
+    private String image;
     private Type postType;
     
     public Post() {
@@ -25,6 +27,24 @@ public class Post {
         user = null;
         content = "";
         postType = Type.TEXT;
+        url="";
+        image="";
+    }
+    
+    public String getUrl(){
+        return this.url;
+    }
+    
+    public void setUrl(String url){
+        this.url = url;
+    }
+    
+    public String getImage(){
+        return this.image;
+    }
+    
+    public void setImage(String image){
+        this.image=image;
     }
     
     public int getId() {

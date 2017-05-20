@@ -5,17 +5,26 @@
  */
 package amm.nerdbook;
 
+import amm.nerdbook.classi.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Utente
  */
+
+
+@WebServlet(urlPatterns=
+ {
+     "/bacheca.html"
+ })
 public class Bacheca extends HttpServlet {
 
     /**
@@ -30,18 +39,48 @@ public class Bacheca extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Bacheca</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Bacheca at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+        HttpSession session = request.getSession(false);
+        
+        //se la sessione esiste ed esiste anche l'attributo loggedIn impostato a true
+        if(session!=null && 
+           session.getAttribute("loggedIn")!=null &&
+           session.getAttribute("loggedIn").equals(true)){
+           
+           /*String username = request.getParameter("Username");
+           String password = request.getParameter("login-password");
+           int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
+           UtentiRegistrati utente = UtenteFactory.getInstance().getUserById(loggedUserID);
+           */
+           String user = (String) request.getParameter("altroutente"); //cercalo poi sul jsp
+           int userID;
+           
+           if(user != null){
+                userID = Integer.parseInt(user);
+           } else {
+                int loggedUserID = (Integer)session.getAttribute("loggedUserID");
+                userID = loggedUserID;
+           }
+           UtentiRegistrati utente2 = UtenteFactory.getInstance().getUserById(userID);
+           
+           if(utente2 != null){
+                request.setAttribute("user", utente2);
+                request.setAttribute("listaUtenti", UtenteFactory.getInstance().getUserList());
+                List<Post> posts = PostFactory.getInstance().getPostList(utente2);
+                request.setAttribute("posts", posts);
+                request.setAttribute("post",PostFactory.getInstance().getPostById(userID));
+                        
+                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+           
+           }else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
+      }
+       else
+      {
+          request.getRequestDispatcher("bacheca.jsp").forward(request,response);
+       }
+               
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

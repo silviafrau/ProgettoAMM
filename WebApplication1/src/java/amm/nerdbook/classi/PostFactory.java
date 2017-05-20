@@ -36,20 +36,29 @@ public class PostFactory {
         post1.setUser(utente.getUserById(0));
 
         Post post2 = new Post();
-        post2.setContent("download.jpg.jpg");
+        post2.setImage("download.jpg");
         post2.setId(1);
+        post2.setContent("Non vedo l'ora di giocare a tekken!!!!!!!");
         post2.setUser(utente.getUserById(1));
         post2.setPostType(Post.Type.IMAGE);
 
         Post post3 = new Post();
-        post3.setContent("https://www.google.it/search?q=nerd&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiczNDu2OTSAhXCvxQKHanjDjwQ_AUICCgB&biw=1366&bih=662#tbm=isch&q=gattini&*&imgrc=LKZjnAkGIJpnpM:");
+        post3.setUrl("https://www.google.it/search?q=nerd&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiczNDu2OTSAhXCvxQKHanjDjwQ_AUICCgB&biw=1366&bih=662#tbm=isch&q=gattini&*&imgrc=LKZjnAkGIJpnpM:");
         post3.setId(2);
+        post3.setContent("Gattini coccolini. Guardateeeee!!!");
         post3.setUser(utente.getUserById(2));
-        post3.setPostType(Post.Type.IMAGE);
+        post3.setPostType(Post.Type.LINK);
+        
+        Post post4 = new Post();
+        post4.setContent("Oggi fa proprio caldo per stare in giro :( ");
+        post4.setId(2);
+        post4.setUser(utente.getUserById(2));
+        post4.setPostType(Post.Type.TEXT);
 
         listaPost.add(post1);
         listaPost.add(post2);
         listaPost.add(post3);
+        listaPost.add(post4);
     }
 
     public Post getPostById(int id) {

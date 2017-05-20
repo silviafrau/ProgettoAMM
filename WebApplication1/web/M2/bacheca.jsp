@@ -37,7 +37,7 @@
             <!--Informazioni personali-->
            
                 <div class="imgProf">
-                    <img title="fotoProfilo" alt="FotoProfilo" src="${UtentiRegistrati.urlFotoProfilo}">
+                    <img title="FotoProfilo" alt="FotoProfilo" src="${UtentiRegistrati.urlFotoProfilo}">
                 </div>
                 <p id="Nome">
                     <strong>Nome:</strong> 

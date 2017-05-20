@@ -30,7 +30,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Descrizione</welcome-file>
+        <welcome-file>descrizione.html</welcome-file>
     </welcome-file-list>
         
 </web-app>

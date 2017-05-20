@@ -11,7 +11,9 @@ import java.util.*;
  * @author Utente
  */
 public class Gruppi extends UtentiRegistrati{
-    protected List<UtentiRegistrati> utentiGruppo;
+
+    private List<UtentiRegistrati> utentiGruppo;
+    public int n;
     private List<Post> PostsGroup;
     private String nomeGruppo;
     
@@ -22,9 +24,27 @@ public class Gruppi extends UtentiRegistrati{
         id= 0;
         nomeGruppo="";
         PostsGroup= new ArrayList<>();
+        n=0;
     }
     
+    /**
+     * @return the utentiGruppo
+     */
+    public List<UtentiRegistrati> getUtentiGruppo() {
+        return utentiGruppo;
+    }
+
+    /**
+     * @param utentiGruppo the utentiGruppo to set
+     */
+    /*
+    public void setUtentiGruppo(List<UtentiRegistrati> utentiGruppo) {
+        this.utentiGruppo = utentiGruppo;
+    }*/
     
+    public Integer numMembri(){
+        return n;
+    }
     public void setNomeGruppo( String nome){
         this.nomeGruppo= nome;
     }
@@ -34,7 +54,8 @@ public class Gruppi extends UtentiRegistrati{
     }
     
     public void add(UtentiRegistrati utente){
-        utentiGruppo.add(utente);
+        getUtentiGruppo().add(utente);
+        this.n++;
     }
     
     public void add(Post post){
@@ -42,7 +63,8 @@ public class Gruppi extends UtentiRegistrati{
     }
     
     public void remove(UtentiRegistrati utente){
-        utentiGruppo.remove(utente);
+        getUtentiGruppo().remove(utente);
+        this.n--;
     }
     
     public void remove(Post post){
@@ -50,7 +72,7 @@ public class Gruppi extends UtentiRegistrati{
     }
     
     public void printUsers(){
-        utentiGruppo.forEach((utente) -> {
+        getUtentiGruppo().forEach((utente) -> {
             System.out.print(utente.getNome());
         });
     }
