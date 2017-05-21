@@ -22,6 +22,7 @@ public class GruppoFactory {
     }
     
     private final ArrayList<Gruppi> listaGruppi = new ArrayList<>();
+    private String connectionString;
     
     private GruppoFactory() {
         //Creazione utenti
@@ -85,7 +86,7 @@ public class GruppoFactory {
     public ArrayList<Gruppi> getGroupList(){
         return listaGruppi;
     }
-    /*
+    
     public void setConnectionString(String s){
         this.connectionString = s;
     }
@@ -93,7 +94,7 @@ public class GruppoFactory {
     public String getConnectionString(){
         return this.connectionString;
     }
-*/
+
 
     
 }

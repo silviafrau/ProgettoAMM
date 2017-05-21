@@ -24,6 +24,7 @@ public class PostFactory {
     }
 
     private ArrayList<Post> listaPost = new ArrayList<>();
+    private String connectionString;
 
     private PostFactory() {
         
@@ -81,6 +82,13 @@ public class PostFactory {
         }
         return listaPost;
     }
-
- //manca la lista data dai gruppi ma non so implementare la setgroup. Yey.
+    
+    public void setConnectionString(String s){
+        this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+        return this.connectionString;
+    }
+ 
 }

@@ -16,7 +16,7 @@ public class Gruppi extends UtentiRegistrati{
     public int n;
     private List<Post> PostsGroup;
     private String nomeGruppo;
-    
+   
     private int id;
     
     public Gruppi(){
