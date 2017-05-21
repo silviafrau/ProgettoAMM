@@ -74,7 +74,7 @@
                                     </div>
                                     <div>
                                         <label for="imgType">Post con Link</label>
-                                        <input type="radio" name="postType" value="imgType" id="imgType">
+                                        <input type="radio" name="postType" value="LinkType" id="imgType">
                                     </div>
                                 </div>
                                 <div id="postContent">
@@ -90,9 +90,11 @@
                                 <button type="submit">Invia</button>
                                 
                                 <c:if test="${validData == true}">
-                                     <div id="validDataWarning">Dati inviati.</div>
-                                     
+                                     <div id="validDataWarning">${user.nome} ha scritto nella sua bacheca personale.</div>  
                                 </c:if>
+                                <c:if test="${validData2 == true}">
+                                     <div id="validDataWarning">${user.nome} ha scritto nella bacheca di ${user.nome}.</div>  
+                                </c:if>   
                             </form>
                     </div>
             </div>

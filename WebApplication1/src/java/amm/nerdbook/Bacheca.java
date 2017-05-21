@@ -54,12 +54,21 @@ public class Bacheca extends HttpServlet {
            */
            String user = (String) request.getParameter("altroutente"); //cercalo poi sul jsp
            int userID;
+           String parameter = (String) request.getParameter("postType");
+           String text = (String) request.getParameter("textArea");
            
            if(user != null){
                 userID = Integer.parseInt(user);
+                
            } else {
                 int loggedUserID = (Integer)session.getAttribute("loggedUserID");
                 userID = loggedUserID;
+                if(parameter.equals("textType") || parameter.equals("imgType") || parameter.equals("LinkType")){
+                    if(text != null){
+                        request.setAttribute("validData",true);
+                        request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                    }     
+                }
            }
            UtentiRegistrati utente2 = UtenteFactory.getInstance().getUserById(userID);
            
@@ -71,7 +80,14 @@ public class Bacheca extends HttpServlet {
                 request.setAttribute("post",PostFactory.getInstance().getPostById(userID));
                         
                 request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-           
+                
+                if(parameter.equals("textType") || parameter.equals("imgType") || parameter.equals("LinkType")){
+                    if(text != null){
+                        request.setAttribute("validData2",true);
+                        request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                    }     
+                }
+               
            }else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
