@@ -95,6 +95,9 @@
                                 <c:if test="${validData2 == true}">
                                      <div id="validDataWarning">${user.nome} ha scritto nella bacheca di ${user.nome}.</div>  
                                 </c:if>   
+                                <c:if test="${null == true}">
+                                     <div id="validDataWarning">Non hai compilatp tutti i campi del post.</div>  
+                                </c:if>   
                             </form>
                     </div>
             </div>
